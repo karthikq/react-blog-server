@@ -23,6 +23,8 @@ const PostsSchema = mongoose.Schema({
       date: String,
       profileUrl: String,
       userDetails: {},
+      status: String,
+      sortDate: String,
     },
   ],
 });

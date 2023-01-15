@@ -22,12 +22,14 @@ router.post("/data/post", Authmiddleware, async (req, res) => {
       const checkFieldName = await Post.findOne({
         fieldName: req.body.fieldName,
       });
-
+      console.log("====================================");
+      console.log(req.body);
+      console.log("====================================");
       req.body.userId = req.user.userId;
       req.body.post_Id = post_Id;
       req.body.like = 0;
       req.body.dislike = 0;
-
+      req.body.sortDate = new Date();
       if (checkFieldName) {
         await Post.findOneAndUpdate(
           { fieldName: req.body.fieldName },
